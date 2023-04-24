@@ -1,0 +1,92 @@
+@prefix : <http://purl.org/nemo/osdef#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@base <http://purl.org/nemo/osdef#> .
+
+<http://purl.org/nemo/osdef#> rdf:type owl:Ontology ;
+                                                  dc:creator "Duarte, Bruno B." ;
+                                                  dc:date "2021-07-11"@en ;
+                                                  dc:title "Ontology of Software Defect, Errors and Failures"@en ;
+                                                  dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                                                  vann:preferredNamespaceUri "http://purl.org/nemo/osdef#"^^xsd:anyURI ;
+                                                  rdfs:comment "This ontology has been used in Duarte's PhD Thesis"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+dct:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/nemo/osdef#Defect
+<http://purl.org/nemo/osdef#Defect> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://purl.org/nemo/osdef#Vulnerability> .
+
+
+###  http://purl.org/nemo/osdef#Failure
+<http://purl.org/nemo/osdef#Failure> rdf:type owl:Class ;
+                                                   rdfs:subClassOf gufo:Event .
+
+
+###  http://purl.org/nemo/osdef#Fault
+<http://purl.org/nemo/osdef#Fault> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://purl.org/nemo/osdef#Defect> .
+
+
+###  http://purl.org/nemo/osdef#FaultManifestationFailure
+<http://purl.org/nemo/osdef#FaultManifestationFailure> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://purl.org/nemo/osdef#Failure> ;
+                                                                     owl:disjointWith <http://purl.org/nemo/osdef#UserGeneratedFailure> .
+
+
+###  http://purl.org/nemo/osdef#UserGeneratedFailure
+<http://purl.org/nemo/osdef#UserGeneratedFailure> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://purl.org/nemo/osdef#Failure> .
+
+
+###  http://purl.org/nemo/osdef#Vulnerability
+<http://purl.org/nemo/osdef#Vulnerability> rdf:type owl:Class ;
+                                                         rdfs:subClassOf gufo:IntrinsicMode .

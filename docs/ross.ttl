@@ -1,0 +1,163 @@
+@prefix : <http://purl.org/nemo/ross#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix cmpo: <http://purl.org/nemo/cmpo#> .
+@base <http://purl.org/nemo/ross#> .
+
+
+<http://purl.org/nemo/ross#> rdf:type owl:Ontology ;
+                                                  dc:creator "Duarte, Bruno B." ;
+                                                  dc:date "2021-07-11"@en ;
+                                                  dc:title "Reference Ontology of Software Systems"@en ;
+                                                  dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                                                  vann:preferredNamespaceUri "http://purl.org/nemo/ross#"^^xsd:anyURI ;
+                                                  rdfs:comment "This ontology has been used in Duarte's PhD Thesis"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+dct:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/nemo/ross#implements
+<http://purl.org/nemo/ross#implements> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://purl.org/nemo/ross#Program> ;
+                                                     rdfs:range <http://purl.org/nemo/ross#ProgramRequirement> .
+
+
+###  http://purl.org/nemo/ross#isRefinedFrom
+<http://purl.org/nemo/ross#isRefinedFrom> rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf owl:topObjectProperty ;
+                                                        rdfs:domain <http://purl.org/nemo/ross#Requirement> ;
+                                                        rdfs:range <http://purl.org/nemo/ross#Requirement> .
+
+
+###  http://purl.org/nemo/ross#changes
+:changes rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain <http://purl.org/nemo/cmpo#ChangeRequest> ;
+         rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/nemo/ross#BusinessRegulation
+<http://purl.org/nemo/ross#BusinessRegulation> rdf:type owl:Class ;
+                                                             rdfs:subClassOf gufo:ExtrinsicMode .
+
+
+###  http://purl.org/nemo/ross#BusinessRequirement
+<http://purl.org/nemo/ross#BusinessRequirement> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
+
+
+###  http://purl.org/nemo/ross#BusinessRule
+<http://purl.org/nemo/ross#BusinessRule> rdf:type owl:Class ;
+                                                       rdfs:subClassOf gufo:IntrinsicMode .
+
+
+###  http://purl.org/nemo/ross#Organization
+<http://purl.org/nemo/ross#Organization> rdf:type owl:Class ;
+                                                       rdfs:subClassOf gufo:VariableCollection .
+
+
+###  http://purl.org/nemo/ross#Program
+<http://purl.org/nemo/ross#Program> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://purl.org/nemo/ross#SystemElement> .
+
+
+###  http://purl.org/nemo/ross#ProgramRequirement
+<http://purl.org/nemo/ross#ProgramRequirement> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
+
+
+###  http://purl.org/nemo/ross#Requirement
+<http://purl.org/nemo/ross#Requirement> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> .
+
+
+###  http://purl.org/nemo/ross#SoftwareSystem
+<http://purl.org/nemo/ross#SoftwareSystem> rdf:type owl:Class ;
+                                                         rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://purl.org/nemo/ross#Stakeholder
+<http://purl.org/nemo/ross#Stakeholder> rdf:type owl:Class ;
+                                                      rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://purl.org/nemo/ross#StakeholderRequirement
+<http://purl.org/nemo/ross#StakeholderRequirement> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
+
+
+###  http://purl.org/nemo/ross#SystemElement
+<http://purl.org/nemo/ross#SystemElement> rdf:type owl:Class ;
+                                                        rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://purl.org/nemo/ross#SystemRequirement
+<http://purl.org/nemo/ross#SystemRequirement> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
+
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://purl.org/nemo/ross#BusinessRequirement>
+                <http://purl.org/nemo/ross#ProgramRequirement>
+                <http://purl.org/nemo/ross#StakeholderRequirement>
+                <http://purl.org/nemo/ross#SystemRequirement>
+              )
+] .
+
+

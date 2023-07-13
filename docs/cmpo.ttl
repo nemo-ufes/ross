@@ -91,8 +91,10 @@ xsd:date rdf:type rdfs:Datatype .
                                                         rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> .
                                                         rdfs:label "ChangeRequest"@en .
                                                         rdfs:comment "Information Item describing a request for modification on a set of Configuration Items." .
+                                                        rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .
 ###  http://purl.org/nemo/cmpo#ConfigurationItem
 <http://purl.org/nemo/cmpo#ConfigurationItem> rdf:type owl:Class ;
                                                             rdfs:subClassOf <http://purl.org/nemo/spo#Artifact> .
                                                             rdfs:label "ConfigurationItem"@en .
                                                             rdfs:comment "Object whose configuration is being managed." .
+                                                            rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .

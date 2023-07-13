@@ -10,9 +10,13 @@
 @base <http://purl.org/nemo/spo#> .
 
 <http://purl.org/nemo/spo#> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <http://purl.org/nemo/spo/1.0.0#> ;
+                                                  owl:versionInfo "1.0.0" ;
                                                   dc:creator "Duarte, Bruno B." ;
-                                                  dc:date "2021-07-11"@en ;
+                                                  dcterms:created "2021-07-11"^^xsd:date ;
+                                                  dcterms:modified "2023-07-13"^^xsd:date ;
                                                   dc:title "Software Process Ontology"@en ;
+                                                   vann:preferredNamespacePrefix "spo"@en ;
                                                   dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
                                                   vann:preferredNamespaceUri "http://purl.org/nemo/spo#"^^xsd:anyURI ;
                                                   rdfs:comment "This ontology has been used in Duarte's PhD Thesis"@en .
@@ -29,8 +33,12 @@ dc:contributor rdf:type owl:AnnotationProperty .
 dc:creator rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/date
-dc:date rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/rights
@@ -43,6 +51,10 @@ dc:title rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/rights
 dct:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
@@ -64,3 +76,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/nemo/spo#Artifact
 <http://purl.org/nemo/spo#Artifact> rdf:type owl:Class ;
                                                   rdfs:subClassOf gufo:Object .
+                                                  rdfs:comment "Object intentionally made to serve a given purpose in the context of a software Project or Organization." .
+                                                  rdfs:label "Artifact"@en .
+                                                  rdfs:isDefinedBy <http://purl.org/nemo/spo#> .

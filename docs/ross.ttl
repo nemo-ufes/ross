@@ -120,7 +120,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                        rdfs:subClassOf gufo:IntrinsicMode ;
                                                        rdfs:label "BusinessRule"@en ;
                                                        rdfs:comment "Normative Descriptions that define a policy, guideline or practice that constrains some aspects of a business project and its intended results." ;
-                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
+                                                       rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Organization
 <http://purl.org/nemo/ross#Organization> rdf:type owl:Class ;

@@ -78,9 +78,9 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/nemo/cmpo#isRequestForChange
 <http://purl.org/nemo/cmpo#isRequestForChange> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                                             rdfs:label "isRequestForChange"@en .
                                                              rdfs:domain <http://purl.org/nemo/cmpo#ChangeRequest> ;
                                                              rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> .
-                                                             rdfs:label "isRequestForChange"@en .
 
 
 #################################################################

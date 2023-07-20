@@ -1,6 +1,7 @@
 @prefix : <http://purl.org/nemo/cmpo#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -11,10 +12,14 @@
 @base <http://purl.org/nemo/cmpo#> .
 
 <http://purl.org/nemo/cmpo#> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <http://purl.org/nemo/cmpo/1.0.0#> ;
+                                                  owl:versionInfo "1.0.0" ;
                                                   dc:creator "Duarte, Bruno B." ;
-                                                  dc:date "2021-07-11"@en ;
+                                                  dcterms:created "2021-07-11"^^xsd:date ;
+                                                  dcterms:modified "2023-07-13"^^xsd:date ;
                                                   dc:title "Configuration Management Process Ontology"@en ;
                                                   dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                                                  vann:preferredNamespacePrefix "cmpo"@en ;
                                                   vann:preferredNamespaceUri "http://purl.org/nemo/cmpo#"^^xsd:anyURI ;
                                                   rdfs:comment "This ontology has been used in Duarte's PhD Thesis"@en .
 
@@ -30,8 +35,12 @@ dc:contributor rdf:type owl:AnnotationProperty .
 dc:creator rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/date
-dc:date rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/rights
@@ -44,6 +53,10 @@ dc:title rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/rights
 dct:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
@@ -66,8 +79,8 @@ xsd:date rdf:type rdfs:Datatype .
 <http://purl.org/nemo/cmpo#isRequestForChange> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf owl:topObjectProperty ;
                                                              rdfs:domain <http://purl.org/nemo/cmpo#ChangeRequest> ;
-                                                             rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> .
-
+                                                             rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> ;
+                                                             rdfs:label "isRequestForChange"@en ;
 
 
 #################################################################
@@ -76,9 +89,13 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/nemo/cmpo#ChangeRequest
 <http://purl.org/nemo/cmpo#ChangeRequest> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> .
-
-
+                                                        rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> ;
+                                                        rdfs:label "ChangeRequest"@en ;
+                                                        rdfs:comment "Information Item describing a request for modification on a set of Configuration Items." ;
+                                                        rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .
 ###  http://purl.org/nemo/cmpo#ConfigurationItem
 <http://purl.org/nemo/cmpo#ConfigurationItem> rdf:type owl:Class ;
-                                                            rdfs:subClassOf <http://purl.org/nemo/spo#Artifact> .
+                                                            rdfs:subClassOf <http://purl.org/nemo/spo#Artifact> ;
+                                                            rdfs:label "ConfigurationItem"@en ;
+                                                            rdfs:comment "Object whose configuration is being managed." ;
+                                                            rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .

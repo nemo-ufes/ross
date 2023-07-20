@@ -78,9 +78,9 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/nemo/cmpo#isRequestForChange
 <http://purl.org/nemo/cmpo#isRequestForChange> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf owl:topObjectProperty ;
-                                                             rdfs:label "isRequestForChange"@en .
                                                              rdfs:domain <http://purl.org/nemo/cmpo#ChangeRequest> ;
-                                                             rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> .
+                                                             rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> ;
+                                                             rdfs:label "isRequestForChange"@en ;
 
 
 #################################################################
@@ -89,13 +89,13 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/nemo/cmpo#ChangeRequest
 <http://purl.org/nemo/cmpo#ChangeRequest> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> .
-                                                        rdfs:label "ChangeRequest"@en .
-                                                        rdfs:comment "Information Item describing a request for modification on a set of Configuration Items." .
+                                                        rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> ;
+                                                        rdfs:label "ChangeRequest"@en ;
+                                                        rdfs:comment "Information Item describing a request for modification on a set of Configuration Items." ;
                                                         rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .
 ###  http://purl.org/nemo/cmpo#ConfigurationItem
 <http://purl.org/nemo/cmpo#ConfigurationItem> rdf:type owl:Class ;
-                                                            rdfs:subClassOf <http://purl.org/nemo/spo#Artifact> .
-                                                            rdfs:label "ConfigurationItem"@en .
-                                                            rdfs:comment "Object whose configuration is being managed." .
+                                                            rdfs:subClassOf <http://purl.org/nemo/spo#Artifact> ;
+                                                            rdfs:label "ConfigurationItem"@en ;
+                                                            rdfs:comment "Object whose configuration is being managed." ;
                                                             rdfs:isDefinedBy <http://purl.org/nemo/cmpo#> .

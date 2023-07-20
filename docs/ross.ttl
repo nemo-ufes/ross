@@ -12,10 +12,14 @@
 
 
 <http://purl.org/nemo/ross#> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <http://purl.org/nemo/ross/1.0.0#> ;
+                                                  owl:versionInfo "1.0.0" ;
                                                   dc:creator "Duarte, Bruno B." ;
-                                                  dc:date "2021-07-11"@en ;
+                                                  dcterms:created "2021-07-11"^^xsd:date ;
+                                                  dcterms:modified "2023-07-19"^^xsd:date ;
                                                   dc:title "Reference Ontology of Software Systems"@en ;
                                                   dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                                                  vann:preferredNamespacePrefix "ross"@en ;
                                                   vann:preferredNamespaceUri "http://purl.org/nemo/ross#"^^xsd:anyURI ;
                                                   rdfs:comment "This ontology has been used in Duarte's PhD Thesis"@en .
 
@@ -31,8 +35,12 @@ dc:contributor rdf:type owl:AnnotationProperty .
 dc:creator rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/date
-dc:date rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/rights
@@ -45,6 +53,10 @@ dc:title rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/rights
 dct:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
@@ -67,22 +79,27 @@ xsd:date rdf:type rdfs:Datatype .
 <http://purl.org/nemo/ross#implements> rdf:type owl:ObjectProperty ;
                                                      rdfs:domain <http://purl.org/nemo/ross#Program> ;
                                                      rdfs:range <http://purl.org/nemo/ross#ProgramRequirement> .
-
+                                                     rdfs:label "implements"@en .
+                                                     rdfs:comment "" .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#isRefinedFrom
 <http://purl.org/nemo/ross#isRefinedFrom> rdf:type owl:ObjectProperty ;
                                                         rdfs:subPropertyOf owl:topObjectProperty ;
                                                         rdfs:domain <http://purl.org/nemo/ross#Requirement> ;
                                                         rdfs:range <http://purl.org/nemo/ross#Requirement> .
-
+                                                     rdfs:label "isRefinedFrom"@en .
+                                                     rdfs:comment "" .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#changes
 :changes rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain <http://purl.org/nemo/cmpo#ChangeRequest> ;
          rdfs:range <http://purl.org/nemo/cmpo#ConfigurationItem> .
-
-
+         rdfs:label "changes"@en .
+         rdfs:comment "" .
+         rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 #################################################################
 #    Classes
 #################################################################
@@ -90,62 +107,88 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/nemo/ross#BusinessRegulation
 <http://purl.org/nemo/ross#BusinessRegulation> rdf:type owl:Class ;
                                                              rdfs:subClassOf gufo:ExtrinsicMode .
-
+                                                             rdfs:label "BusinessRegulation"@en .
+                                                             rdfs:comment "" .
+                                                             rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#BusinessRequirement
 <http://purl.org/nemo/ross#BusinessRequirement> rdf:type owl:Class ;
                                                               rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
-
+                                                     rdfs:label "BusinessRequirement"@en .
+                                                     rdfs:comment "high-level Goals an Organization has towards the system-to-be." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#BusinessRule
 <http://purl.org/nemo/ross#BusinessRule> rdf:type owl:Class ;
                                                        rdfs:subClassOf gufo:IntrinsicMode .
-
+                                                     rdfs:label "BusinessRule"@en .
+                                                     rdfs:comment "Normative Descriptions that define a policy, guideline or practice that constrains some aspects of a business project and its intended
+results." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Organization
 <http://purl.org/nemo/ross#Organization> rdf:type owl:Class ;
                                                        rdfs:subClassOf gufo:VariableCollection .
-
+                                                     rdfs:label "Organization"@en .
+                                                     rdfs:comment "Agent involving people and other Agents and facilities with an arrangement of responsibilities, authorities and relationships" .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Program
 <http://purl.org/nemo/ross#Program> rdf:type owl:Class ;
                                                   rdfs:subClassOf <http://purl.org/nemo/ross#SystemElement> .
-
+                                                     rdfs:label "Program"@en .
+                                                     rdfs:comment "Artifact produced during a software process and having the purpose of generating a result in the environment, through its execution in a Machine" .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#ProgramRequirement
 <http://purl.org/nemo/ross#ProgramRequirement> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
-
+                                                     rdfs:label "ProgramRequirement"@en .
+                                                     rdfs:comment "solution-oriented goals that are refined from higher-level requirements, such as stakeholder and system requirements" .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Requirement
 <http://purl.org/nemo/ross#Requirement> rdf:type owl:Class ;
                                                       rdfs:subClassOf <http://purl.org/nemo/cmpo#ConfigurationItem> .
-
+                                                     rdfs:label "Requirement"@en .
+                                                     rdfs:comment "a high-level prescriptive statement about a desired effect that exists only in the environment1 where the system-of-interest exists." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#SoftwareSystem
 <http://purl.org/nemo/ross#SoftwareSystem> rdf:type owl:Class ;
                                                          rdfs:subClassOf gufo:FunctionalComplex .
-
+                                                     rdfs:label "SoftwareSystem"@en .
+                                                     rdfs:comment "the combination of interacting elements that exist inside a computer, such as programs and data." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Stakeholder
 <http://purl.org/nemo/ross#Stakeholder> rdf:type owl:Class ;
                                                       rdfs:subClassOf gufo:FunctionalComplex .
-
+                                                     rdfs:label "Stakeholder"@en .
+                                                     rdfs:comment "Agents (a single person, a group or an organization) interested oraffected by the software process activities or their results, eventually being responsible for
+them (e.g., a user or a development team)." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#StakeholderRequirement
 <http://purl.org/nemo/ross#StakeholderRequirement> rdf:type owl:Class ;
                                                                  rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
-
+                                                     rdfs:label "StakeholderRequirement"@en .
+                                                     rdfs:comment "statements of the needs of the Stakeholders." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#SystemElement
 <http://purl.org/nemo/ross#SystemElement> rdf:type owl:Class ;
                                                         rdfs:subClassOf gufo:FunctionalComplex .
-
+                                                     rdfs:label "SystemElement"@en .
+                                                     rdfs:comment "artifacts that are used by Software Systems during their operation, such as Programs or Hardware Equipment, that are necessary for system operation." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#SystemRequirement
 <http://purl.org/nemo/ross#SystemRequirement> rdf:type owl:Class ;
                                                             rdfs:subClassOf <http://purl.org/nemo/ross#Requirement> .
-
+                                                     rdfs:label "SystemRequirement"@en .
+                                                     rdfs:comment "solution-oriented Goals for the system-of-interest,which are based on background information about the high-level objectives to be achieved by a solution." .
+                                                     rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 
 #################################################################

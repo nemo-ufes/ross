@@ -162,8 +162,8 @@ results." ;
 <http://purl.org/nemo/ross#Stakeholder> rdf:type owl:Class ;
                                                       rdfs:subClassOf gufo:FunctionalComplex ;
                                                       rdfs:label "Stakeholder"@en ;
-                                                      rdfs:comment "Agents (a single person, a group or an organization) interested oraffected by the software process activities or their results, eventually being responsible for
-them (e.g., a user or a development team)." ;
+                                                      rdfs:comment "Agents interested oraffected by the software process activities or their results, eventually being responsible for
+them." ;
                                                      rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#StakeholderRequirement

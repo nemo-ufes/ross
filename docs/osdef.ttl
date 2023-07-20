@@ -1,6 +1,7 @@
 @prefix : <http://purl.org/nemo/osdef#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -75,43 +76,43 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/nemo/osdef#Defect
 <http://purl.org/nemo/osdef#Defect> rdf:type owl:Class ;
-                                                  rdfs:subClassOf <http://purl.org/nemo/osdef#Vulnerability> .
-                                                  rdfs:label "Defect"@en .
-                                                  rdfs:comment "imperfection in a work product (WP) where that WP does not meet its specification and needs to be repaired or replaced" .
+                                                  rdfs:subClassOf <http://purl.org/nemo/osdef#Vulnerability> ;
+                                                  rdfs:label "Defect"@en ;
+                                                  rdfs:comment "imperfection in a work product (WP) where that WP does not meet its specification and needs to be repaired or replaced" ;
                                                   rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .
 
 ###  http://purl.org/nemo/osdef#Failure
 <http://purl.org/nemo/osdef#Failure> rdf:type owl:Class ;
-                                                   rdfs:subClassOf gufo:Event .
-                                                   rdfs:label "Failure"@en .
-                                                   rdfs:comment "event in which a program does not perform as it is intended to," .
+                                                   rdfs:subClassOf gufo:Event ;
+                                                   rdfs:label "Failure"@en ;
+                                                   rdfs:comment "event in which a program does not perform as it is intended to," ;
                                                    rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .
 
 ###  http://purl.org/nemo/osdef#Fault
 <http://purl.org/nemo/osdef#Fault> rdf:type owl:Class ;
-                                                 rdfs:subClassOf <http://purl.org/nemo/osdef#Defect> .
-                                                 rdfs:label "Fault"@en .
-                                                 rdfs:comment "Defect that is manifested as a Failure." .
+                                                 rdfs:subClassOf <http://purl.org/nemo/osdef#Defect> ;
+                                                 rdfs:label "Fault"@en ;
+                                                 rdfs:comment "Defect that is manifested as a Failure." ;
                                                  rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .
 
 ###  http://purl.org/nemo/osdef#FaultManifestationFailure
 <http://purl.org/nemo/osdef#FaultManifestationFailure> rdf:type owl:Class ;
                                                                      rdfs:subClassOf <http://purl.org/nemo/osdef#Failure> ;
-                                                                     owl:disjointWith <http://purl.org/nemo/osdef#UserGeneratedFailure> .
-                                                                     rdfs:label "FaultManifestationFailure"@en .
-                                                                     rdfs:comment "Failures that are manifestations of Faults" .
+                                                                     owl:disjointWith <http://purl.org/nemo/osdef#UserGeneratedFailure> ;
+                                                                     rdfs:label "FaultManifestationFailure"@en ;
+                                                                     rdfs:comment "Failures that are manifestations of Faults" ;
                                                                      rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .
 
 ###  http://purl.org/nemo/osdef#UserGeneratedFailure
 <http://purl.org/nemo/osdef#UserGeneratedFailure> rdf:type owl:Class ;
-                                                                rdfs:subClassOf <http://purl.org/nemo/osdef#Failure> .
-                                                                rdfs:label "UserGeneratedFailure"@en .
-                                                                rdfs:comment "Failures that are directly caused by User Actions" .
+                                                                rdfs:subClassOf <http://purl.org/nemo/osdef#Failure> ;
+                                                                rdfs:label "UserGeneratedFailure"@en ;
+                                                                rdfs:comment "Failures that are directly caused by User Actions" ;
                                                                 rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .
 
 ###  http://purl.org/nemo/osdef#Vulnerability
 <http://purl.org/nemo/osdef#Vulnerability> rdf:type owl:Class ;
-                                                         rdfs:subClassOf gufo:IntrinsicMode .
-                                                         rdfs:label "Vulnerability"@en .
-                                                         rdfs:comment "the Dispositions that can exist in software artifacts or in hardware equipment." .
+                                                         rdfs:subClassOf gufo:IntrinsicMode ;
+                                                         rdfs:label "Vulnerability"@en ;
+                                                         rdfs:comment "the Dispositions that can exist in software artifacts or in hardware equipment." ;
                                                          rdfs:isDefinedBy <http://purl.org/nemo/osdef#> .

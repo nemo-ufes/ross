@@ -119,8 +119,7 @@ xsd:date rdf:type rdfs:Datatype .
 <http://purl.org/nemo/ross#BusinessRule> rdf:type owl:Class ;
                                                        rdfs:subClassOf gufo:IntrinsicMode ;
                                                        rdfs:label "BusinessRule"@en ;
-                                                       rdfs:comment "Normative Descriptions that define a policy, guideline or practice that constrains some aspects of a business project and its intended
-results." ;
+                                                       rdfs:comment "Normative Descriptions that define a policy, guideline or practice that constrains some aspects of a business project and its intended results." ;
                                                      rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#Organization
@@ -162,8 +161,7 @@ results." ;
 <http://purl.org/nemo/ross#Stakeholder> rdf:type owl:Class ;
                                                       rdfs:subClassOf gufo:FunctionalComplex ;
                                                       rdfs:label "Stakeholder"@en ;
-                                                      rdfs:comment "Agents interested oraffected by the software process activities or their results, eventually being responsible for
-them." ;
+                                                      rdfs:comment "Agents interested oraffected by the software process activities or their results, eventually being responsible for them." ;
                                                      rdfs:isDefinedBy <http://purl.org/nemo/ross#> .
 
 ###  http://purl.org/nemo/ross#StakeholderRequirement
